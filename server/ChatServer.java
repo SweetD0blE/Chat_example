@@ -19,9 +19,10 @@ public class ChatServer {
 	  OutputStream output = clientSocket.getOutputStream();
 	  InputStream input = clientSocket.getInputStream();
 	  BufferedReader br = new BufferedReader( new InputStreamReader(input) );
-	  String nicknameClient = br.readLine();
-	  br.readLine();
-	  System.out.println("Клиент подключился");
+
+	  System.out.println("Клиент подключился!");
+	  String nick = br.readLine();
+	  System.out.println("-->" + nick + " вошёл(шла) в чат");
 
 	  String message;
 	  while (( message = br.readLine()) != null) {
@@ -29,8 +30,9 @@ public class ChatServer {
 		  break;
 	      }
 	      System.out.println(message);
-	      
+	      System.out.println(nick + ": " + message);
 	  }
+	  System.out.println("<--" + nick + " покинул(а) чат");
 	  
 	  output.close();
 	  input.close();
