@@ -29,7 +29,6 @@ public class ChatServer {
 	      if(message.equals("\n")) {
 		  break;
 	      }
-	      System.out.println(message);
 	      System.out.println(nick + ": " + message);
 	  }
 	  System.out.println("<--" + nick + " покинул(а) чат");
